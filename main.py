@@ -36,6 +36,8 @@ tagsBf = loadBF('BloomFilters/tagsBf.bf')
 
 
 
+# TODO: Instead use try except so it can even crash and still save the bloom filters!!!
+
 # Setting up the signal Handler to save the bloom filters on exit
 def signalHandler(sig, frame):
     print('Saving bloom filters...')
