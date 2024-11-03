@@ -60,7 +60,8 @@ class Crawler:
                 
             parsedLink = urllib.parse.urlparse(href)
             formattedNetloc = parsedLink.netloc.replace('www.', '')
-            isSameTopDomain = formattedNetloc.split('.')[-2] in ogFormattedNetloc # check if the domain (not subdomain) is the same
+            netlocParts = formattedNetloc.split('.')
+            isSameTopDomain = len(netlocParts) > 1 and netlocParts[-2] in ogFormattedNetloc # check if the domain (not subdomain) is the same
 
 
             # first check if valid and if really an external link (not the same domain)
