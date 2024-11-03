@@ -83,10 +83,10 @@ while True:
     lenLinksToCrawl = len(linksToCrawl)
     if lenLinksToCrawl < 50:
         for extLink in site['extLinks'][:20]:
-            if not db.checkIfSiteExists(extLink):
+            if not extLink in linksToCrawl and not getHash(extLink, 10) in hashedUrlBf:
                 linksToCrawl.append(extLink)
     elif lenLinksToCrawl < 200:
         for extLink in site['extLinks'][:3]:
-            if not db.checkIfSiteExists(extLink):
+            if not extLink in linksToCrawl and not getHash(extLink, 10) in hashedUrlBf:
                 linksToCrawl.append(extLink)
 
